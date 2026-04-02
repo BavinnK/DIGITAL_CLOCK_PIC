@@ -1,24 +1,45 @@
 Warning[205] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 4 : Found directive in column 1. (__CONFIG)
 Warning[205] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 5 : Found directive in column 1. (__CONFIG)
 Warning[205] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 6 : Found directive in column 1. (CBLOCK)
-Warning[205] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 16 : Found directive in column 1. (ENDC)
-Warning[205] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 17 : Found directive in column 1. (CBLOCK)
-Warning[205] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 29 : Found directive in column 1. (ENDC)
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 42 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 43 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 46 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[205] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 17 : Found directive in column 1. (ENDC)
+Warning[205] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 18 : Found directive in column 1. (CBLOCK)
+Warning[205] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 30 : Found directive in column 1. (ENDC)
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 54 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 55 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 61 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 62 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 65 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 63 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 66 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 70 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 72 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 73 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 74 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 85 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 86 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 87 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 88 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 89 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 97 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 119 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 121 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 124 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Warning[205] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 193 : Found directive in column 1. (END)
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 75 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 76 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 77 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 90 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 91 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 94 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 95 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 103 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 114 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 115 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 116 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 117 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 118 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 126 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 150 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 152 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 155 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 227 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 229 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 231 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 233 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 235 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 237 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 244 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 252 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 260 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 268 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 276 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 284 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[205] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 290 : Found directive in column 1. (END)
