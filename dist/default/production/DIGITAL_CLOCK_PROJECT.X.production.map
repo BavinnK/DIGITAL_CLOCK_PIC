@@ -1,13 +1,13 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Wed Apr 01 19:51:39 2026
+Linker Map File - Created Thu Apr 02 16:31:45 2026
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                    .org_0       code   0x000000    program   0x000002
                    .cinit    romdata   0x000001    program   0x000004
-                   .org_1       code   0x000004    program   0x000020
-                   .org_2       code   0x000050    program   0x0000ba
+                   .org_1       code   0x000004    program   0x000022
+                   .org_2       code   0x000050    program   0x0000ca
 .config_2007_BUILD/DEFAULT/PRODUCTION/MAIN.O       code   0x002007    program   0x000002
 .config_2008_BUILD/DEFAULT/PRODUCTION/MAIN.O       code   0x002008    program   0x000002
 
@@ -17,49 +17,49 @@ Linker Map File - Created Wed Apr 01 19:51:39 2026
                                Start         End      
                            ---------   ---------      
                             0x000000    0x000002      
-                            0x000004    0x000013      
-                            0x000050    0x0000ac      
+                            0x000004    0x000014      
+                            0x000050    0x0000b4      
                             0x002007    0x002008      
-            114 out of 8455 program addresses used, program memory utilization is 1%
+            123 out of 8455 program addresses used, program memory utilization is 1%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-            COUNTER_LOGIC   0x000076    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                HOUR_DONE   0x0000a9    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                HOUR_LOOP   0x0000a3    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-               HOUR_RESET   0x000086    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                 ISR_EXIT   0x00000f    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+            COUNTER_LOGIC   0x00007e    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                HOUR_DONE   0x0000b1    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                HOUR_LOOP   0x0000ab    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+               HOUR_RESET   0x00008e    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                 ISR_EXIT   0x000010    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                 MAIN_INIT   0x000050    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                MAIN_LOOP   0x000064    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                 MIN_DONE   0x00009d    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-               MIN_HR_INC   0x000083    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                 MIN_LOOP   0x000097    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                 SEC_DONE   0x000091    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                 SEC_LOOP   0x00008b    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-              SEC_MIN_INC   0x000080    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                    SPLIT   0x000088    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                MAIN_LOOP   0x00006c    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                 MIN_DONE   0x0000a5    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+               MIN_HR_INC   0x00008b    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                 MIN_LOOP   0x00009f    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                 SEC_DONE   0x000099    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                 SEC_LOOP   0x000093    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+              SEC_MIN_INC   0x000088    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                    SPLIT   0x000090    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
 
 
 
                               Symbols - Sorted by Address
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                 ISR_EXIT   0x00000f    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                 ISR_EXIT   0x000010    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                 MAIN_INIT   0x000050    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                MAIN_LOOP   0x000064    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-            COUNTER_LOGIC   0x000076    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-              SEC_MIN_INC   0x000080    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-               MIN_HR_INC   0x000083    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-               HOUR_RESET   0x000086    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                    SPLIT   0x000088    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                 SEC_LOOP   0x00008b    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                 SEC_DONE   0x000091    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                 MIN_LOOP   0x000097    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                 MIN_DONE   0x00009d    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                HOUR_LOOP   0x0000a3    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                HOUR_DONE   0x0000a9    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                MAIN_LOOP   0x00006c    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+            COUNTER_LOGIC   0x00007e    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+              SEC_MIN_INC   0x000088    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+               MIN_HR_INC   0x00008b    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+               HOUR_RESET   0x00008e    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                    SPLIT   0x000090    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                 SEC_LOOP   0x000093    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                 SEC_DONE   0x000099    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                 MIN_LOOP   0x00009f    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                 MIN_DONE   0x0000a5    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                HOUR_LOOP   0x0000ab    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                HOUR_DONE   0x0000b1    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
 
 

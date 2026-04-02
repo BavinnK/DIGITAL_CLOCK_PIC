@@ -6,6 +6,7 @@ __CONFIG _CONFIG2, _BOR4V_BOR40V & _WRT_OFF
 CBLOCK  0x190	    ;GENRAL VARIABLES
     COUNTER	    ;0x190 addr
     COUNTER_FLAG
+    DISP_COUNTER
     DISP_BUF_0
     DISP_BUF_1
     DISP_BUF_2
@@ -40,6 +41,11 @@ ENDC
     BANKSEL COUNTER
     INCF COUNTER,F
     BSF COUNTER_FLAG,0
+    
+    ;EACH 1MS we will change what PORTD sends to the displays
+    INCF DISP_COUNTER,F
+    
+    
     GOTO ISR_EXIT
     
 ISR_EXIT:
@@ -74,6 +80,16 @@ MAIN_INIT:
     BCF T1CON,0	    ;TIM1 OFF
     ;TIMER1 END
     
+    ;TIMER0 SETUP
+    BANKSEL OPTION_REG
+    BCF OPTION_REG,5
+    BCF OPTION_REG,3
+    BSF OPTION_REG,2
+    BCF OPTION_REG,1
+    BCF OPTION_REG,0	    ;32 PCS so every 1.63 ms the timer0 will OVF and ISR will occurs
+    
+    BSF INTCON,5
+    ;TIMER0 END
     GOTO MAIN_LOOP
     
 MAIN_LOOP:
