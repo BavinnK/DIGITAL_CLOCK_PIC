@@ -1,5 +1,5 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Sun Apr 05 15:56:24 2026
+Linker Map File - Created Sun Apr 05 16:13:07 2026
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -7,7 +7,7 @@ Linker Map File - Created Sun Apr 05 15:56:24 2026
                    .org_0       code   0x000000    program   0x000002
                    .cinit    romdata   0x000001    program   0x000004
                    .org_1       code   0x000004    program   0x00004e
-                   .org_2       code   0x000050    program   0x00014a
+                   .org_2       code   0x000050    program   0x000160
 .config_2007_BUILD/DEFAULT/PRODUCTION/MAIN.O       code   0x002007    program   0x000002
 .config_2008_BUILD/DEFAULT/PRODUCTION/MAIN.O       code   0x002008    program   0x000002
 
@@ -18,9 +18,9 @@ Linker Map File - Created Sun Apr 05 15:56:24 2026
                            ---------   ---------      
                             0x000000    0x000002      
                             0x000004    0x00002a      
-                            0x000050    0x0000f4      
+                            0x000050    0x0000ff      
                             0x002007    0x002008      
-            209 out of 8455 program addresses used, program memory utilization is 2%
+            220 out of 8455 program addresses used, program memory utilization is 2%
 
 
 
@@ -48,6 +48,7 @@ Linker Map File - Created Sun Apr 05 15:56:24 2026
                  SEC_DONE   0x00009a    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                  SEC_LOOP   0x000094    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
               SEC_MIN_INC   0x000089    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+               SEG_LOOKUP   0x0000f5    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                     SPLIT   0x000091    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
              TIMER0_LOGIC   0x000014    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                TIMER1_INC   0x00000e    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
@@ -81,5 +82,6 @@ Linker Map File - Created Sun Apr 05 15:56:24 2026
                   DIGIT_3   0x0000dd    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                   DIGIT_4   0x0000e5    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                   DIGIT_5   0x0000ed    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+               SEG_LOOKUP   0x0000f5    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
 
 

@@ -241,6 +241,7 @@ DIGIT_DISP:	    ;to select which digit show the number
     RETURN
     
 DIGIT_0:
+    
     BANKSEL DISP_DIGIT_FLAG
     CLRF DISP_DIGIT_FLAG
     BANKSEL PORTB
@@ -288,6 +289,19 @@ DIGIT_5:
     MOVWF PORTB
     RETURN
     
+SEG_LOOKUP:
+    ADDWF PCL,F
+    
+    RETLW b'00111111' ;0
+    RETLW b'00000110' ;1
+    RETLW b'01011011' ;2
+    RETLW b'01001111' ;3
+    RETLW b'01100110' ;4
+    RETLW b'01101101' ;5
+    RETLW b'01111101' ;6
+    RETLW b'00000111' ;7
+    RETLW b'01111111' ;8
+    RETLW b'01101111' ;9
 END
     
 
