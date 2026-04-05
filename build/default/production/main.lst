@@ -1,4 +1,4 @@
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE  1
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -48,344 +48,345 @@ Warning[205]: Found directive in column 1. (CBLOCK)
   00000078            00027     MIN_TENS        ;0x78
   00000079            00028     HOUR_ONES       ;0x79
   0000007A            00029     HOUR_TENS       ;0x7A
+  0000007B            00030     TEMP_VAR        ;0x7B
 Warning[205]: Found directive in column 1. (ENDC)
-                      00030 ENDC
-                      00031 ;RESET_VECTOR
-                      00032     org 0x00
-0000   2???           00033     GOTO MAIN_INIT
-                      00034 ;INTERRUPT_VECTOR
-                      00035     org 0x04
-0004   00F0           00036     MOVWF W_TEMP
-0005   0E03           00037     SWAPF STATUS,W
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE  2
+                      00031 ENDC
+                      00032 ;RESET_VECTOR
+                      00033     org 0x00
+0000   2???           00034     GOTO MAIN_INIT
+                      00035 ;INTERRUPT_VECTOR
+                      00036     org 0x04
+0004   00F0           00037     MOVWF W_TEMP
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0006   00F1           00038     MOVWF S_TEMP
-                      00039     
-0007   1283 1303      00040     BANKSEL PIR1
-0009   180C           00041     BTFSC PIR1,0
-000A   2???           00042     GOTO TIMER1_INC
-                      00043     
-                      00044     ;EACH 1MS we will change what PORTD sends to the displays
-000B   190B           00045     BTFSC INTCON,2
-000C   2???           00046     GOTO TIMER0_LOGIC
-                      00047     
+0005   0E03           00038     SWAPF STATUS,W
+0006   00F1           00039     MOVWF S_TEMP
+                      00040     
+0007   1283 1303      00041     BANKSEL PIR1
+0009   180C           00042     BTFSC PIR1,0
+000A   2???           00043     GOTO TIMER1_INC
+                      00044     
+                      00045     ;EACH 1MS we will change what PORTD sends to the displays
+000B   190B           00046     BTFSC INTCON,2
+000C   2???           00047     GOTO TIMER0_LOGIC
                       00048     
-000D   2???           00049     GOTO ISR_EXIT
-                      00050     
-000E                  00051 TIMER1_INC:
-000E   100C           00052     BCF PIR1,0
-000F   1683 1703      00053     BANKSEL COUNTER
+                      00049     
+000D   2???           00050     GOTO ISR_EXIT
+                      00051     
+000E                  00052 TIMER1_INC:
+000E   100C           00053     BCF PIR1,0
+000F   1683 1703      00054     BANKSEL COUNTER
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0011   0A90           00054     INCF COUNTER,F
+0011   0A90           00055     INCF COUNTER,F
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0012   1411           00055     BSF COUNTER_FLAG,0
-0013   2???           00056     GOTO ISR_EXIT
-                      00057     
-0014                  00058 TIMER0_LOGIC:
-0014   110B           00059     BCF INTCON,2
-0015   1683 1703      00060     BANKSEL DISP_COUNTER
+0012   1411           00056     BSF COUNTER_FLAG,0
+0013   2???           00057     GOTO ISR_EXIT
+                      00058     
+0014                  00059 TIMER0_LOGIC:
+0014   110B           00060     BCF INTCON,2
+0015   1683 1703      00061     BANKSEL DISP_COUNTER
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0017   0A92           00061     INCF DISP_COUNTER,F
-0018   3006           00062     MOVLW 6
+0017   0A92           00062     INCF DISP_COUNTER,F
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0019   0212           00063     SUBWF DISP_COUNTER,W
-001A   1D03           00064     BTFSS STATUS,2
-001B   2???           00065     GOTO DISP_OK
+0018   0812           00063     MOVFW DISP_COUNTER
+0019   3C06           00064     SUBLW 6
+001A   1D03           00065     BTFSS STATUS,2
+001B   2???           00066     GOTO DISP_OK
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-001C   0192           00066     CLRF DISP_COUNTER
-001D   2???           00067     GOTO DISP_OK
+001C   0192           00067     CLRF DISP_COUNTER
                       00068     
-001E                  00069 DISP_OK:
+                      00069     
+001D                  00070 DISP_OK:
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-001E   0092           00070     MOVWF DISP_COUNTER
-001F   0782           00071     ADDWF PCL,F
+001D   0812           00071     MOVF DISP_COUNTER,W
+001E   0782           00072     ADDWF PCL,F
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0020   1413           00072     BSF DISP_DIGIT_FLAG,0       ;SEC DIGIT ONES
+001F   1413           00073     BSF DISP_DIGIT_FLAG,0       ;SEC DIGIT ONES
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0021   1493           00073     BSF DISP_DIGIT_FLAG,1       ;SEC DIGIT TENS
+0020   1493           00074     BSF DISP_DIGIT_FLAG,1       ;SEC DIGIT TENS
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0022   1513           00074     BSF DISP_DIGIT_FLAG,2       ;MIN DIGIT ONES
+0021   1513           00075     BSF DISP_DIGIT_FLAG,2       ;MIN DIGIT ONES
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0023   1593           00075     BSF DISP_DIGIT_FLAG,3       ;MIN DIGIT TENS
+0022   1593           00076     BSF DISP_DIGIT_FLAG,3       ;MIN DIGIT TENS
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0024   1613           00076     BSF DISP_DIGIT_FLAG,4       ;HR DIGIT ONES
+0023   1613           00077     BSF DISP_DIGIT_FLAG,4       ;HR DIGIT ONES
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0025   1693           00077     BSF DISP_DIGIT_FLAG,5       ;HR DIGIT TENS
-0026   2???           00078     GOTO ISR_EXIT
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE  3
+0024   1693           00078     BSF DISP_DIGIT_FLAG,5       ;HR DIGIT TENS
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00079     
-0027                  00080 ISR_EXIT:
-0027   0E71           00081     SWAPF S_TEMP,W
-0028   0083           00082     MOVWF STATUS
-0029   0EF0           00083     SWAPF W_TEMP,F
-002A   0E70           00084     SWAPF W_TEMP,W
-002B   0009           00085     RETFIE  
-                      00086 ;MAIN_CODE
-                      00087     org 0x50
-0050                  00088 MAIN_INIT:
-0050   1683 1703      00089     BANKSEL ANSEL
+0025   2???           00079     GOTO ISR_EXIT
+                      00080     
+0026                  00081 ISR_EXIT:
+0026   0E71           00082     SWAPF S_TEMP,W
+0027   0083           00083     MOVWF STATUS
+0028   0EF0           00084     SWAPF W_TEMP,F
+0029   0E70           00085     SWAPF W_TEMP,W
+002A   0009           00086     RETFIE  
+                      00087 ;MAIN_CODE
+                      00088     org 0x50
+0050                  00089 MAIN_INIT:
+0050   1683 1703      00090     BANKSEL ANSEL
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0052   0188           00090     CLRF ANSEL
+0052   0188           00091     CLRF ANSEL
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0053   0189           00091     CLRF ANSELH
-                      00092     
-0054   1683 1303      00093     BANKSEL TRISD
+0053   0189           00092     CLRF ANSELH
+                      00093     
+0054   1683 1303      00094     BANKSEL TRISD
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0056   0188           00094     CLRF TRISD      ;USED FOR DISPLAY SHOW
+0056   0188           00095     CLRF TRISD      ;USED FOR DISPLAY SHOW
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0057   0186           00095     CLRF TRISB      ;USED FOR CONTROLLING THE DIGITS
-                      00096     
-0058   178B           00097     BSF INTCON,7    ;GIE EN
-0059   170B           00098     BSF INTCON,6    ;PEIE EN
-                      00099     
+0057   0186           00096     CLRF TRISB      ;USED FOR CONTROLLING THE DIGITS
+                      00097     
+0058   178B           00098     BSF INTCON,7    ;GIE EN
+0059   170B           00099     BSF INTCON,6    ;PEIE EN
                       00100     
-                      00101     ;SETUP TIMER1
-005A   1683 1303      00102     BANKSEL PIE1
+                      00101     
+                      00102     ;SETUP TIMER1
+005A   1683 1303      00103     BANKSEL PIE1
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-005C   140C           00103     BSF PIE1,0      ;EN TMR1 OVF
-                      00104     
-005D   1283 1303      00105     BANKSEL T1CON
-005F   1690           00106     BSF T1CON,5     ;PCS IS SET TO 8
-0060   1610           00107     BSF T1CON,4
-0061   1090           00108     BCF T1CON,1     ;INTERNAL CLK 
-0062   1410           00109     BSF T1CON,0     ;TIM1 ON
-                      00110     ;TIMER1 END
-                      00111     
-                      00112     ;TIMER0 SETUP
-0063   1683 1303      00113     BANKSEL OPTION_REG
+005C   140C           00104     BSF PIE1,0      ;EN TMR1 OVF
+                      00105     
+005D   1283 1303      00106     BANKSEL T1CON
+005F   1690           00107     BSF T1CON,5     ;PCS IS SET TO 8
+0060   1610           00108     BSF T1CON,4
+0061   1090           00109     BCF T1CON,1     ;INTERNAL CLK 
+0062   1410           00110     BSF T1CON,0     ;TIM1 ON
+                      00111     ;TIMER1 END
+                      00112     
+                      00113     ;TIMER0 SETUP
+0063   1683 1303      00114     BANKSEL OPTION_REG
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0065   1281           00114     BCF OPTION_REG,5
+0065   1281           00115     BCF OPTION_REG,5
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0066   1181           00115     BCF OPTION_REG,3
+0066   1181           00116     BCF OPTION_REG,3
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0067   1501           00116     BSF OPTION_REG,2
+0067   1501           00117     BSF OPTION_REG,2
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0068   1081           00117     BCF OPTION_REG,1
+0068   1081           00118     BCF OPTION_REG,1
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0069   1001           00118     BCF OPTION_REG,0        ;32 PCS so every 1.63 ms the timer0 will OVF and ISR will occurs
-                      00119     
-006A   168B           00120     BSF INTCON,5
-                      00121     ;TIMER0 END
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE  4
+0069   1001           00119     BCF OPTION_REG,0        ;32 PCS so every 1.63 ms the timer0 will OVF and ISR will occurs
+                      00120     
+006A   168B           00121     BSF INTCON,5
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-006B   2???           00122     GOTO MAIN_LOOP
-                      00123     
-006C                  00124 MAIN_LOOP:
-006C   1683 1703      00125     BANKSEL COUNTER_FLAG
+                      00122     ;TIMER0 END
+006B   2???           00123     GOTO MAIN_LOOP
+                      00124     
+006C                  00125 MAIN_LOOP:
+006C   1683 1703      00126     BANKSEL COUNTER_FLAG
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-006E   1811           00126     BTFSC COUNTER_FLAG,0
-006F   2???           00127     CALL COUNTER_LOGIC
-                      00128     
-0070   0872           00129     MOVF SECOND_DIGIT,W
-0071   3C60           00130     SUBLW 60
-0072   1903           00131     BTFSC STATUS,2
-0073   2???           00132     CALL SEC_MIN_INC
-                      00133     
-0074   0873           00134     MOVF MINUTE_DIGIT,W
-0075   3C60           00135     SUBLW 60
-0076   1903           00136     BTFSC STATUS,2
-0077   2???           00137     CALL MIN_HR_INC
-                      00138     
-0078   0874           00139    MOVF HOUR_DIGIT,W
-0079   3C24           00140     SUBLW 24
-007A   1903           00141     BTFSC STATUS,2
-007B   2???           00142     CALL HOUR_RESET
-007C   2???           00143     CALL SPLIT
-                      00144     
-007D   2???           00145     CALL DIGIT_DISP
-007E   2???           00146     GOTO MAIN_LOOP
-                      00147     
-007F                  00148 COUNTER_LOGIC:
-007F   1683 1703      00149     BANKSEL COUNTER_FLAG
+006E   1811           00127     BTFSC COUNTER_FLAG,0
+006F   2???           00128     CALL COUNTER_LOGIC
+                      00129     
+0070   0872           00130     MOVF SECOND_DIGIT,W
+0071   3C60           00131     SUBLW 60
+0072   1903           00132     BTFSC STATUS,2
+0073   2???           00133     CALL SEC_MIN_INC
+                      00134     
+0074   0873           00135     MOVF MINUTE_DIGIT,W
+0075   3C60           00136     SUBLW 60
+0076   1903           00137     BTFSC STATUS,2
+0077   2???           00138     CALL MIN_HR_INC
+                      00139     
+0078   0874           00140    MOVF HOUR_DIGIT,W
+0079   3C24           00141     SUBLW 24
+007A   1903           00142     BTFSC STATUS,2
+007B   2???           00143     CALL HOUR_RESET
+007C   2???           00144     CALL SPLIT
+                      00145     
+007D   2???           00146     CALL DIGIT_DISP
+007E   2???           00147     GOTO MAIN_LOOP
+                      00148     
+007F                  00149 COUNTER_LOGIC:
+007F   1683 1703      00150     BANKSEL COUNTER_FLAG
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0081   0191           00150     CLRF COUNTER_FLAG
-0082   3010           00151     MOVLW 10
+0081   0191           00151     CLRF COUNTER_FLAG
+0082   3010           00152     MOVLW 10
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0083   0210           00152     SUBWF COUNTER,W
-0084   1D03           00153     BTFSS STATUS,2
-0085   0008           00154     RETURN
+0083   0210           00153     SUBWF COUNTER,W
+0084   1D03           00154     BTFSS STATUS,2
+0085   0008           00155     RETURN
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0086   0190           00155     CLRF COUNTER
-0087   0AF2           00156     INCF SECOND_DIGIT,F
-0088   0008           00157     RETURN
-                      00158 
-0089                  00159 SEC_MIN_INC:
-0089   01F2           00160     CLRF SECOND_DIGIT
-008A   0AF3           00161     INCF MINUTE_DIGIT,F
-008B   0008           00162     RETURN
-                      00163   
-008C                  00164 MIN_HR_INC:
-008C   01F3           00165     CLRF MINUTE_DIGIT
-008D   0AF4           00166     INCF HOUR_DIGIT,F
-008E   0008           00167     RETURN
-                      00168     
-008F                  00169 HOUR_RESET:
-008F   01F4           00170     CLRF HOUR_DIGIT
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE  5
+0086   0190           00156     CLRF COUNTER
+0087   0AF2           00157     INCF SECOND_DIGIT,F
+0088   0008           00158     RETURN
+                      00159 
+0089                  00160 SEC_MIN_INC:
+0089   01F2           00161     CLRF SECOND_DIGIT
+008A   0AF3           00162     INCF MINUTE_DIGIT,F
+008B   0008           00163     RETURN
+                      00164   
+008C                  00165 MIN_HR_INC:
+008C   01F3           00166     CLRF MINUTE_DIGIT
+008D   0AF4           00167     INCF HOUR_DIGIT,F
+008E   0008           00168     RETURN
+                      00169     
+008F                  00170 HOUR_RESET:
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0090   0008           00171     RETURN
-                      00172     
-0091                  00173 SPLIT:
-                      00174     ;SECONDS
-0091   01F6           00175     CLRF SEC_TENS
-0092   0872           00176     MOVF SECOND_DIGIT,W
-0093   00F0           00177     MOVWF W_TEMP
-0094                  00178 SEC_LOOP:
-0094   300A           00179     MOVLW d'10'
-0095   02F0           00180     SUBWF W_TEMP,F
-0096   1C03           00181     BTFSS STATUS,C
-0097   2???           00182     GOTO SEC_DONE
-0098   0AF6           00183     INCF SEC_TENS,F
-0099   2???           00184     GOTO SEC_LOOP
-009A                  00185 SEC_DONE:
-009A   300A           00186     MOVLW d'10'
-009B   0770           00187     ADDWF W_TEMP,W
-009C   00F5           00188     MOVWF SEC_ONES
-                      00189 
-                      00190     ;MINUTES
-009D   01F8           00191     CLRF MIN_TENS
-009E   0873           00192     MOVF MINUTE_DIGIT,W
-009F   00F0           00193     MOVWF W_TEMP
-00A0                  00194 MIN_LOOP:
-00A0   300A           00195     MOVLW d'10'
-00A1   02F0           00196     SUBWF W_TEMP,F
-00A2   1C03           00197     BTFSS STATUS,C
-00A3   2???           00198     GOTO MIN_DONE
-00A4   0AF8           00199     INCF MIN_TENS,F
-00A5   2???           00200     GOTO MIN_LOOP
-00A6                  00201 MIN_DONE:
-00A6   300A           00202     MOVLW d'10'
-00A7   0770           00203     ADDWF W_TEMP,W
-00A8   00F7           00204     MOVWF MIN_ONES
-                      00205 
-                      00206     ;HOURS
-00A9   01FA           00207     CLRF HOUR_TENS
-00AA   0874           00208     MOVF HOUR_DIGIT,W
-00AB   00F0           00209     MOVWF W_TEMP
-00AC                  00210 HOUR_LOOP:
-00AC   300A           00211     MOVLW d'10'
-00AD   02F0           00212     SUBWF W_TEMP,F
-00AE   1C03           00213     BTFSS STATUS,C
-00AF   2???           00214     GOTO HOUR_DONE
-00B0   0AFA           00215     INCF HOUR_TENS,F
-00B1   2???           00216     GOTO HOUR_LOOP
-00B2                  00217 HOUR_DONE:
-00B2   300A           00218     MOVLW d'10'
-00B3   0770           00219     ADDWF W_TEMP,W
-00B4   00F9           00220     MOVWF HOUR_ONES
-                      00221 
-00B5   0008           00222     RETURN
-                      00223     
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE  6
+008F   01F4           00171     CLRF HOUR_DIGIT
+0090   0008           00172     RETURN
+                      00173     
+0091                  00174 SPLIT:
+                      00175     ;SECONDS
+0091   01F6           00176     CLRF SEC_TENS
+0092   0872           00177     MOVF SECOND_DIGIT,W
+0093   00FB           00178     MOVWF TEMP_VAR
+0094                  00179 SEC_LOOP:
+0094   300A           00180     MOVLW d'10'
+0095   02FB           00181     SUBWF TEMP_VAR,F
+0096   1C03           00182     BTFSS STATUS,C
+0097   2???           00183     GOTO SEC_DONE
+0098   0AF6           00184     INCF SEC_TENS,F
+0099   2???           00185     GOTO SEC_LOOP
+009A                  00186 SEC_DONE:
+009A   300A           00187     MOVLW d'10'
+009B   077B           00188     ADDWF TEMP_VAR,W
+009C   00F5           00189     MOVWF SEC_ONES
+                      00190 
+                      00191     ;MINUTES
+009D   01F8           00192     CLRF MIN_TENS
+009E   0873           00193     MOVF MINUTE_DIGIT,W
+009F   00FB           00194     MOVWF TEMP_VAR
+00A0                  00195 MIN_LOOP:
+00A0   300A           00196     MOVLW d'10'
+00A1   02FB           00197     SUBWF TEMP_VAR,F
+00A2   1C03           00198     BTFSS STATUS,C
+00A3   2???           00199     GOTO MIN_DONE
+00A4   0AF8           00200     INCF MIN_TENS,F
+00A5   2???           00201     GOTO MIN_LOOP
+00A6                  00202 MIN_DONE:
+00A6   300A           00203     MOVLW d'10'
+00A7   077B           00204     ADDWF TEMP_VAR,W
+00A8   00F7           00205     MOVWF MIN_ONES
+                      00206 
+                      00207     ;HOURS
+00A9   01FA           00208     CLRF HOUR_TENS
+00AA   0874           00209     MOVF HOUR_DIGIT,W
+00AB   00FB           00210     MOVWF TEMP_VAR
+00AC                  00211 HOUR_LOOP:
+00AC   300A           00212     MOVLW d'10'
+00AD   02FB           00213     SUBWF TEMP_VAR,F
+00AE   1C03           00214     BTFSS STATUS,C
+00AF   2???           00215     GOTO HOUR_DONE
+00B0   0AFA           00216     INCF HOUR_TENS,F
+00B1   2???           00217     GOTO HOUR_LOOP
+00B2                  00218 HOUR_DONE:
+00B2   300A           00219     MOVLW d'10'
+00B3   077B           00220     ADDWF TEMP_VAR,W
+00B4   00F9           00221     MOVWF HOUR_ONES
+                      00222 
+00B5   0008           00223     RETURN
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
                       00224     
-00B6                  00225 DIGIT_DISP:
-00B6   1683 1703      00226     BANKSEL DISP_DIGIT_FLAG
+                      00225     
+00B6                  00226 DIGIT_DISP:         ;to select which digit show the number
+00B6   1683 1703      00227     BANKSEL DISP_DIGIT_FLAG
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-00B8   1813           00227     BTFSC DISP_DIGIT_FLAG,0
-00B9   2???           00228     CALL DIGIT_0
+00B8   1813           00228     BTFSC DISP_DIGIT_FLAG,0
+00B9   2???           00229     CALL DIGIT_0
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-00BA   1893           00229     BTFSC DISP_DIGIT_FLAG,1
-00BB   2???           00230     CALL DIGIT_1
+00BA   1893           00230     BTFSC DISP_DIGIT_FLAG,1
+00BB   2???           00231     CALL DIGIT_1
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-00BC   1913           00231     BTFSC DISP_DIGIT_FLAG,2
-00BD   2???           00232     CALL DIGIT_2
+00BC   1913           00232     BTFSC DISP_DIGIT_FLAG,2
+00BD   2???           00233     CALL DIGIT_2
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-00BE   1993           00233     BTFSC DISP_DIGIT_FLAG,3
-00BF   2???           00234     CALL DIGIT_3
+00BE   1993           00234     BTFSC DISP_DIGIT_FLAG,3
+00BF   2???           00235     CALL DIGIT_3
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-00C0   1A13           00235     BTFSC DISP_DIGIT_FLAG,4
-00C1   2???           00236     CALL DIGIT_4
+00C0   1A13           00236     BTFSC DISP_DIGIT_FLAG,4
+00C1   2???           00237     CALL DIGIT_4
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-00C2   1A93           00237     BTFSC DISP_DIGIT_FLAG,5
-00C3   2???           00238     CALL DIGIT_5
-                      00239     
-00C4   0008           00240     RETURN
-                      00241     
-00C5                  00242 DIGIT_0:
-00C5   1683 1703      00243     BANKSEL DISP_DIGIT_FLAG
+00C2   1A93           00238     BTFSC DISP_DIGIT_FLAG,5
+00C3   2???           00239     CALL DIGIT_5
+                      00240     
+00C4   0008           00241     RETURN
+                      00242     
+00C5                  00243 DIGIT_0:
+00C5   1683 1703      00244     BANKSEL DISP_DIGIT_FLAG
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-00C7   0193           00244     CLRF DISP_DIGIT_FLAG
-00C8   1283 1303      00245     BANKSEL PORTB
-00CA   303D           00246     MOVLW b'00111101'
-00CB   0086           00247     MOVWF PORTB
-00CC   0008           00248     RETURN
-                      00249     
-00CD                  00250 DIGIT_1:
-00CD   1683 1703      00251     BANKSEL DISP_DIGIT_FLAG
+00C7   0193           00245     CLRF DISP_DIGIT_FLAG
+00C8   1283 1303      00246     BANKSEL PORTB
+00CA   303D           00247     MOVLW b'00111101'
+00CB   0086           00248     MOVWF PORTB
+00CC   0008           00249     RETURN
+                      00250     
+00CD                  00251 DIGIT_1:
+00CD   1683 1703      00252     BANKSEL DISP_DIGIT_FLAG
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-00CF   0193           00252     CLRF DISP_DIGIT_FLAG
-00D0   1283 1303      00253     BANKSEL PORTB
-00D2   303E           00254     MOVLW b'00111110'
-00D3   0086           00255     MOVWF PORTB
-00D4   0008           00256     RETURN
-                      00257     
-00D5                  00258 DIGIT_2:
-00D5   1683 1703      00259     BANKSEL DISP_DIGIT_FLAG
+00CF   0193           00253     CLRF DISP_DIGIT_FLAG
+00D0   1283 1303      00254     BANKSEL PORTB
+00D2   303E           00255     MOVLW b'00111110'
+00D3   0086           00256     MOVWF PORTB
+00D4   0008           00257     RETURN
+                      00258     
+00D5                  00259 DIGIT_2:
+00D5   1683 1703      00260     BANKSEL DISP_DIGIT_FLAG
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-00D7   0193           00260     CLRF DISP_DIGIT_FLAG
-00D8   1283 1303      00261     BANKSEL PORTB
-00DA   3038           00262     MOVLW b'00111000'
-00DB   0086           00263     MOVWF PORTB
-00DC   0008           00264     RETURN
-                      00265     
-00DD                  00266 DIGIT_3:
-00DD   1683 1703      00267     BANKSEL DISP_DIGIT_FLAG
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE  7
+00D7   0193           00261     CLRF DISP_DIGIT_FLAG
+00D8   1283 1303      00262     BANKSEL PORTB
+00DA   3038           00263     MOVLW b'00111000'
+00DB   0086           00264     MOVWF PORTB
+00DC   0008           00265     RETURN
+                      00266     
+00DD                  00267 DIGIT_3:
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
+00DD   1683 1703      00268     BANKSEL DISP_DIGIT_FLAG
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-00DF   0193           00268     CLRF DISP_DIGIT_FLAG
-00E0   1283 1303      00269     BANKSEL PORTB
-00E2   3034           00270     MOVLW b'00110100'
-00E3   0086           00271     MOVWF PORTB
-00E4   0008           00272     RETURN
-                      00273     
-00E5                  00274 DIGIT_4:
-00E5   1683 1703      00275     BANKSEL DISP_DIGIT_FLAG
+00DF   0193           00269     CLRF DISP_DIGIT_FLAG
+00E0   1283 1303      00270     BANKSEL PORTB
+00E2   3034           00271     MOVLW b'00110100'
+00E3   0086           00272     MOVWF PORTB
+00E4   0008           00273     RETURN
+                      00274     
+00E5                  00275 DIGIT_4:
+00E5   1683 1703      00276     BANKSEL DISP_DIGIT_FLAG
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-00E7   0193           00276     CLRF DISP_DIGIT_FLAG
-00E8   1283 1303      00277     BANKSEL PORTB
-00EA   302C           00278     MOVLW b'00101100'
-00EB   0086           00279     MOVWF PORTB
-00EC   0008           00280     RETURN
-                      00281     
-00ED                  00282 DIGIT_5:
-00ED   1683 1703      00283     BANKSEL DISP_DIGIT_FLAG
+00E7   0193           00277     CLRF DISP_DIGIT_FLAG
+00E8   1283 1303      00278     BANKSEL PORTB
+00EA   302C           00279     MOVLW b'00101100'
+00EB   0086           00280     MOVWF PORTB
+00EC   0008           00281     RETURN
+                      00282     
+00ED                  00283 DIGIT_5:
+00ED   1683 1703      00284     BANKSEL DISP_DIGIT_FLAG
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-00EF   0193           00284     CLRF DISP_DIGIT_FLAG
-00F0   1283 1303      00285     BANKSEL PORTB
-00F2   301C           00286     MOVLW b'00011100'
-00F3   0086           00287     MOVWF PORTB
-00F4   0008           00288     RETURN
-                      00289     
+00EF   0193           00285     CLRF DISP_DIGIT_FLAG
+00F0   1283 1303      00286     BANKSEL PORTB
+00F2   301C           00287     MOVLW b'00011100'
+00F3   0086           00288     MOVWF PORTB
+00F4   0008           00289     RETURN
+                      00290     
 Warning[205]: Found directive in column 1. (END)
-2FE2 3FFF             00290 END
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE  8
+2FE2 3FFF             00291 END
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE  8
 
 
 SYMBOL TABLE
@@ -444,7 +445,7 @@ BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
 BRG9                              00000001
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE  9
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE  9
 
 
 SYMBOL TABLE
@@ -503,7 +504,7 @@ CHS0                              00000002
 CHS1                              00000003
 CHS2                              00000004
 CHS3                              00000005
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE 10
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE 10
 
 
 SYMBOL TABLE
@@ -541,7 +542,7 @@ DISP_BUF_4                        00000198
 DISP_BUF_5                        00000199
 DISP_COUNTER                      00000192
 DISP_DIGIT_FLAG                   00000193
-DISP_OK                           0000001E
+DISP_OK                           0000001D
 D_A                               00000005
 D_NOT_A                           00000005
 ECCPAS                            0000009C
@@ -562,7 +563,7 @@ EEPGD                             00000007
 F                                 00000001
 FERR                              00000002
 FSR                               00000004
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE 11
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE 11
 
 
 SYMBOL TABLE
@@ -603,7 +604,7 @@ IRCF0                             00000004
 IRCF1                             00000005
 IRCF2                             00000006
 IRP                               00000007
-ISR_EXIT                          00000027
+ISR_EXIT                          00000026
 LTS                               00000001
 MAIN_INIT                         00000050
 MAIN_LOOP                         0000006C
@@ -621,7 +622,7 @@ MSK1                              00000001
 MSK2                              00000002
 MSK3                              00000003
 MSK4                              00000004
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE 12
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE 12
 
 
 SYMBOL TABLE
@@ -680,7 +681,7 @@ PRSEN                             00000007
 PS0                               00000000
 PS1                               00000001
 PS2                               00000002
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE 13
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE 13
 
 
 SYMBOL TABLE
@@ -739,7 +740,7 @@ RD3                               00000003
 RD4                               00000004
 RD5                               00000005
 RD6                               00000006
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE 14
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE 14
 
 
 SYMBOL TABLE
@@ -798,7 +799,7 @@ STRA                              00000000
 STRB                              00000001
 STRC                              00000002
 STRD                              00000003
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE 15
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE 15
 
 
 SYMBOL TABLE
@@ -824,6 +825,7 @@ T1SYNC                            00000002
 T2CKPS0                           00000000
 T2CKPS1                           00000001
 T2CON                             00000012
+TEMP_VAR                          0000007B
 TIMER0_LOGIC                      00000014
 TIMER1_INC                        0000000E
 TMR0                              00000001
@@ -856,13 +858,13 @@ TRISA6                            00000006
 TRISA7                            00000007
 TRISB                             00000086
 TRISB0                            00000000
-TRISB1                            00000001
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE 16
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE 16
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+TRISB1                            00000001
 TRISB2                            00000002
 TRISB3                            00000003
 TRISB4                            00000004
@@ -915,13 +917,13 @@ VCFG0                             00000004
 VCFG1                             00000005
 VR0                               00000000
 VR1                               00000001
-VR2                               00000002
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE 17
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE 17
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+VR2                               00000002
 VR3                               00000003
 VRCON                             00000097
 VREN                              00000007
@@ -974,13 +976,13 @@ _DEVID1                           00002006
 _EC_OSC                           00003FFB
 _EXTRC                            00003FFF
 _EXTRCIO                          00003FFE
-_EXTRC_OSC_CLKOUT                 00003FFF
-MPASM 5.68                          MAIN.ASM   4-2-2026  17:23:41         PAGE 18
+MPASM 5.68                          MAIN.ASM   4-5-2026  15:56:22         PAGE 18
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+_EXTRC_OSC_CLKOUT                 00003FFF
 _EXTRC_OSC_NOCLKOUT               00003FFE
 _FCMEN_OFF                        000037FF
 _FCMEN_ON                         00003FFF
