@@ -1,4 +1,4 @@
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE  1
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[205]: Found directive in column 1. (ENDC)
                       00035     
 0007   1283 1303      00036     BANKSEL PIR1
 0009   180C           00037     BTFSC PIR1,0
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE  2
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -89,7 +89,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
 0018   0812           00058     MOVFW DISP_COUNTER
 0019   3C06           00059     SUBLW 6
-001A   1D03           00060     BTFSS STATUS,2
+001A   1903           00060     BTFSC STATUS,2
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
 001B   0192           00061     CLRF DISP_COUNTER
 001C   2???           00062     CALL DISP_OK
@@ -116,7 +116,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 002A   0E70           00081     SWAPF W_TEMP,W
 002B   0009           00082     RETFIE  
                       00083 ;MAIN_CODE
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE  3
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 006E   1811           00123     BTFSC COUNTER_FLAG,0
 006F   2???           00124     CALL COUNTER_LOGIC
                       00125     
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE  4
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0092   0872           00173     MOVF SECOND_DIGIT,W
 0093   00FB           00174     MOVWF TEMP_VAR
 0094                  00175 SEC_LOOP:
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE  5
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -293,7 +293,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 00B9   2???           00225     CALL DIGIT_0
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
 00BA   1893           00226     BTFSC DISP_DIGIT_FLAG,1
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE  6
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -352,7 +352,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 00E2   1283 1303      00269     BANKSEL PORTD
 00E4   0088           00270     MOVWF PORTD
 00E5   3038           00271     MOVLW b'00111000'
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE  7
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -411,14 +411,14 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0112   347F           00319     RETLW b'01111111' ;8
 0113   346F           00320     RETLW b'01101111' ;9
 Warning[205]: Found directive in column 1. (END)
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE  8
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE  8
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
 2FE2 3FFF             00321 END
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE  9
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE  9
 
 
 SYMBOL TABLE
@@ -477,7 +477,7 @@ BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
 BRG9                              00000001
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE 10
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE 10
 
 
 SYMBOL TABLE
@@ -536,7 +536,7 @@ CHS0                              00000002
 CHS1                              00000003
 CHS2                              00000004
 CHS3                              00000005
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE 11
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE 11
 
 
 SYMBOL TABLE
@@ -595,7 +595,7 @@ GIE                               00000007
 GO                                00000001
 GO_DONE                           00000001
 GO_NOT_DONE                       00000001
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE 12
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE 12
 
 
 SYMBOL TABLE
@@ -654,7 +654,7 @@ MSK7                              00000007
 NOT_A                             00000005
 NOT_ADDRESS                       00000005
 NOT_BO                            00000000
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE 13
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE 13
 
 
 SYMBOL TABLE
@@ -713,7 +713,7 @@ PSSAC1                            00000003
 PSSBD0                            00000000
 PSSBD1                            00000001
 PSTRCON                           0000009D
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE 14
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE 14
 
 
 SYMBOL TABLE
@@ -772,7 +772,7 @@ RE1                               00000001
 RE2                               00000002
 RE3                               00000003
 READ_WRITE                        00000002
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE 15
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE 15
 
 
 SYMBOL TABLE
@@ -831,7 +831,7 @@ SWDTEN                            00000000
 SYNC                              00000004
 S_TEMP                            00000071
 T0CS                              00000005
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE 16
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE 16
 
 
 SYMBOL TABLE
@@ -890,7 +890,7 @@ TRISB2                            00000002
 TRISB3                            00000003
 TRISB4                            00000004
 TRISB5                            00000005
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE 17
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE 17
 
 
 SYMBOL TABLE
@@ -949,7 +949,7 @@ VR3                               00000003
 VRCON                             00000097
 VREN                              00000007
 VROE                              00000006
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE 18
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE 18
 
 
 SYMBOL TABLE
@@ -1008,7 +1008,7 @@ _EXTRC_OSC_NOCLKOUT               00003FFE
 _FCMEN_OFF                        000037FF
 _FCMEN_ON                         00003FFF
 _FOSC_EC                          00003FFB
-MPASM 5.68                          MAIN.ASM   4-5-2026  16:41:31         PAGE 19
+MPASM 5.68                          MAIN.ASM   4-5-2026  16:46:59         PAGE 19
 
 
 SYMBOL TABLE
