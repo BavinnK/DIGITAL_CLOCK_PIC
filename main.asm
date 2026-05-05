@@ -204,9 +204,9 @@ I2C_START_:
     BANKSEL SSPCON2
     BSF SSPCON2,0	;START CONDITION
     
-    SEN_WAIT:		;so we will wait here until MSSP finishes whatever he is doing
-	BTFSC SSPCON2,0
-	GOTO SEN_WAIT
+SEN_WAIT:		;so we will wait here until MSSP finishes whatever he is doing
+    BTFSC SSPCON2,0
+    GOTO SEN_WAIT
     
     RETURN
     
@@ -218,9 +218,21 @@ LCD_ADDR_SEND:		;ts subroutine only sends the lcd addr
     MOVWF SSPBUF
     
     BANKSEL SSPSTAT
-    BUF_WAIT:
-	BTFSC SSPSTAT,2	;wait until the MSSP sends the data, then wait and check if we get ACK or NACK from the slave
-	GOTO BUF_WAIT
+BUF_WAIT:
+    BTFSC SSPSTAT,2	;wait until the MSSP sends the data, then wait and check if we get ACK or NACK from the slave
+    GOTO BUF_WAIT
+    BANKSEL SSPCON2
+    BTFSC SSPCON2,6
+    GOTO I2C_ERROR
+    RETURN
+    
+I2C_SEND_BYTE:
+    BANKSEL SSPBUF
+    MOVWF SSPBUF
+    BANKSEL SSPSTAT
+WAIT_BYTE:
+    BTFSC SSPSTAT,2
+    GOTO WAIT_BYTE
     BANKSEL SSPCON2
     BTFSC SSPCON2,6
     GOTO I2C_ERROR
