@@ -65,7 +65,9 @@ MAIN_INIT:
     CLRF ANSEL
     CLRF ANSELH
     
-    
+    BANKSEL TRISC
+    BSF TRISC,3	    ;I2C SCL
+    BSF TRISC,4	    ;I2C SDA
     
     BSF INTCON,7    ;GIE EN
     BSF INTCON,6    ;PEIE EN
@@ -82,7 +84,15 @@ MAIN_INIT:
     BSF T1CON,0	    ;TIM1 ON
     ;TIMER1 END
     
+    ;I2C SETUP
+    BANKSEL SSPCON
+    BSF SSPCON,5
+    BSF SSPCON,3    ;master mode clock = FOSC / (4 * (SSPADD+1))
     
+    MOVLW 49
+    MOVWF SSPADD    ;based on this formula clock = FOSC / (4 * (SSPADD+1)) if we set SSPADD to 49 we get a 100khz clk for the i2c,
+		    ;we also can overclock it more until 400khz but for only  LIQUID disp u dont need to dothat
+    ;I2C END		    
     GOTO MAIN_LOOP
     
 MAIN_LOOP:
