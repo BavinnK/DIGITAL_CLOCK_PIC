@@ -1,5 +1,5 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Tue May 05 21:13:05 2026
+Linker Map File - Created Tue May 05 21:31:22 2026
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -7,7 +7,7 @@ Linker Map File - Created Tue May 05 21:13:05 2026
                    .org_0       code   0x000000    program   0x000002
                    .cinit    romdata   0x000001    program   0x000004
                    .org_1       code   0x000004    program   0x000026
-                   .org_2       code   0x000050    program   0x0000dc
+                   .org_2       code   0x000050    program   0x0000fa
 .config_2007_BUILD/DEFAULT/PRODUCTION/MAIN.O       code   0x002007    program   0x000002
 .config_2008_BUILD/DEFAULT/PRODUCTION/MAIN.O       code   0x002008    program   0x000002
 
@@ -18,21 +18,24 @@ Linker Map File - Created Tue May 05 21:13:05 2026
                            ---------   ---------      
                             0x000000    0x000002      
                             0x000004    0x000016      
-                            0x000050    0x0000bd      
+                            0x000050    0x0000cc      
                             0x002007    0x002008      
-            134 out of 8455 program addresses used, program memory utilization is 1%
+            149 out of 8455 program addresses used, program memory utilization is 1%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
+                 BUF_WAIT   0x0000c5    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
             COUNTER_LOGIC   0x000081    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                 HOUR_DONE   0x0000b4    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                 HOUR_LOOP   0x0000ae    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                HOUR_RESET   0x000091    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                I2C_ERROR   0x0000cc    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                I2C_START_   0x0000b8    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                  ISR_EXIT   0x000012    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+            LCD_ADDR_SEND   0x0000be    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                 MAIN_INIT   0x000050    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                 MAIN_LOOP   0x00006f    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                  MIN_DONE   0x0000a8    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
@@ -67,5 +70,8 @@ Linker Map File - Created Tue May 05 21:13:05 2026
                 HOUR_DONE   0x0000b4    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                I2C_START_   0x0000b8    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                  SEN_WAIT   0x0000bb    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+            LCD_ADDR_SEND   0x0000be    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                 BUF_WAIT   0x0000c5    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                I2C_ERROR   0x0000cc    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
 
 
