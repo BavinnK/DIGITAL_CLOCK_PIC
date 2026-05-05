@@ -22,6 +22,7 @@ CBLOCK	0x70	;IENTERRUPT SAVE VARIABLES
     HOUR_ONES	    ;0x79
     HOUR_TENS	    ;0x7A
     TEMP_VAR	    ;0x7B
+    LCD_ADDR	    ;0x7C
 ENDC
 ;RESET_VECTOR
     org 0x00
@@ -89,9 +90,13 @@ MAIN_INIT:
     BSF SSPCON,5
     BSF SSPCON,3    ;master mode clock = FOSC / (4 * (SSPADD+1))
     
+    BANKSEL SSPADD
     MOVLW 49
     MOVWF SSPADD    ;based on this formula clock = FOSC / (4 * (SSPADD+1)) if we set SSPADD to 49 we get a 100khz clk for the i2c,
 		    ;we also can overclock it more until 400khz but for only  LIQUID disp u dont need to dothat
+    CLRF LCD_ADDR
+    MOVLW 0x27	    ;addr of the lcd based on datasheet
+    MOVWF LCD_ADDR
     ;I2C END		    
     GOTO MAIN_LOOP
     
@@ -195,6 +200,17 @@ HOUR_DONE:
 
     RETURN
     
+I2C_START_:
+    BANKSEL SSPCON2
+    BSF SSPCON2,0	;START CONDITION
     
+    SEN_WAIT:		;so we will wait here until MSSP finishes whatever he is doing
+    BTFSC SSPCON2,0
+    GOTO SEN_WAIT
+    
+    RETURN
+    
+
+
 
 END
