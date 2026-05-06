@@ -1,5 +1,5 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Thu May 07 00:33:03 2026
+Linker Map File - Created Thu May 07 00:37:45 2026
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -7,7 +7,7 @@ Linker Map File - Created Thu May 07 00:33:03 2026
                    .org_0       code   0x000000    program   0x000002
                    .cinit    romdata   0x000001    program   0x000004
                    .org_1       code   0x000004    program   0x000026
-                   .org_2       code   0x000050    program   0x000166
+                   .org_2       code   0x000050    program   0x000182
 .config_2007_BUILD/DEFAULT/PRODUCTION/MAIN.O       code   0x002007    program   0x000002
 .config_2008_BUILD/DEFAULT/PRODUCTION/MAIN.O       code   0x002008    program   0x000002
 
@@ -18,9 +18,9 @@ Linker Map File - Created Thu May 07 00:33:03 2026
                            ---------   ---------      
                             0x000000    0x000002      
                             0x000004    0x000016      
-                            0x000050    0x000102      
+                            0x000050    0x000110      
                             0x002007    0x002008      
-            203 out of 8455 program addresses used, program memory utilization is 2%
+            217 out of 8455 program addresses used, program memory utilization is 2%
 
 
 
@@ -30,12 +30,13 @@ Linker Map File - Created Thu May 07 00:33:03 2026
             BUF_WAIT_READ   0x0000d4    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
            BUF_WAIT_WRITE   0x0000c5    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
             COUNTER_LOGIC   0x000081    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                    DELAY   0x0000f6    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                    DELAY   0x000104    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                 HOUR_DONE   0x0000b4    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                 HOUR_LOOP   0x0000ae    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                HOUR_RESET   0x000091    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                I2C_ERROR   0x0000f5    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                I2C_ERROR   0x000103    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
         I2C_READ_BYTE_ACK   0x0000e9    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+       I2C_READ_BYTE_NACK   0x0000f6    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
             I2C_SEND_BYTE   0x0000dc    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                I2C_START_   0x0000b8    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                  ISR_EXIT   0x000012    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
@@ -54,6 +55,7 @@ Linker Map File - Created Thu May 07 00:33:03 2026
                TIMER1_INC   0x00000c    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                 WAIT_BYTE   0x0000e1    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                 WAIT_RCEN   0x0000ec    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+               WAIT_RCEN1   0x0000f9    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
 
 
 
@@ -85,7 +87,9 @@ Linker Map File - Created Thu May 07 00:33:03 2026
                 WAIT_BYTE   0x0000e1    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
         I2C_READ_BYTE_ACK   0x0000e9    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
                 WAIT_RCEN   0x0000ec    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                I2C_ERROR   0x0000f5    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
-                    DELAY   0x0000f6    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+       I2C_READ_BYTE_NACK   0x0000f6    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+               WAIT_RCEN1   0x0000f9    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                I2C_ERROR   0x000103    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
+                    DELAY   0x000104    program     static C:\Users\Bavin\MPLABXProjects\DIGITAL_CLOCK_PROJECT.X\main.asm
 
 

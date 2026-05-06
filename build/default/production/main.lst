@@ -1,4 +1,4 @@
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE  1
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[205]: Found directive in column 1. (ENDC)
                       00035     
 0007   1283 1303      00036     BANKSEL PIR1
 0009   180C           00037     BTFSC PIR1,0
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE  2
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 005D   1283 1303      00081     BANKSEL T1CON
 005F   1690           00082     BSF T1CON,5     ;PCS IS SET TO 8
 0060   1610           00083     BSF T1CON,4
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE  3
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0083   0191           00129     CLRF COUNTER_FLAG
 0084   3010           00130     MOVLW 10
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE  4
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 00A8                  00180 MIN_DONE:
 00A8   300A           00181     MOVLW d'10'
 00A9   077B           00182     ADDWF TEMP_VAR,W
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE  5
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -293,7 +293,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 00CB   2???           00227     GOTO I2C_ERROR
 00CC   0008           00228     RETURN
                       00229     
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE  6
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -347,44 +347,63 @@ Warning[207]: Found label after column 1. (WAIT_RCEN)
 00ED   2???           00267     GOTO WAIT_RCEN
 00EE   1283 1303      00268     BANKSEL SSPBUF
 00F0   0813           00269     MOVF SSPBUF,W
-                      00270     ;MOVWF TO SOME VAR
+                      00270     ;MOVWF TO SOME VARIABLE
 00F1   1683 1303      00271     BANKSEL SSPCON2
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
 00F3   1291           00272     BCF SSPCON2,5       ;SET IT TO 0 means when we recive data send an ACK
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE  7
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
 00F4   1611           00273     BSF SSPCON2,4       ;then pull the trigger and send the ACK, to the bus
-                      00274     
+00F5   0008           00274     RETURN
                       00275     
-                      00276     
-                      00277     
-00F5                  00278 I2C_ERROR:
-                      00279     ;NOTHING HERE YET
-00F5   0008           00280     RETURN
-                      00281 
-                      00282     
-00F6                  00283 DELAY:
-00F6   0000           00284     NOP
-00F7   0000           00285     NOP
-00F8   0000           00286     NOP
-00F9   0000           00287     NOP
-00FA   0000           00288     NOP
-00FB   0000           00289     NOP
-00FC   0000           00290     NOP
-00FD   0000           00291     NOP
-00FE   0000           00292     NOP
-00FF   0000           00293     NOP
-0100   0000           00294     NOP
-0101   0000           00295     NOP
-0102   0008           00296     RETURN
+00F6                  00276 I2C_READ_BYTE_NACK:
+00F6   1683 1303      00277     BANKSEL SSPCON2
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+00F8   1591           00278     BSF SSPCON2,3
+Warning[207]: Found label after column 1. (WAIT_RCEN1)
+00F9                  00279     WAIT_RCEN1:
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+00F9   1991           00280     BTFSC SSPCON2,3
+00FA   2???           00281     GOTO WAIT_RCEN1
+00FB   1283 1303      00282     BANKSEL SSPBUF
+00FD   0813           00283     MOVF SSPBUF,W
+                      00284     ;MOVWF TO SOME VARIABLE
+00FE   1683 1303      00285     BANKSEL SSPCON2
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0100   1691           00286     BSF SSPCON2,5
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0101   1611           00287     BSF SSPCON2,4
+0102   0008           00288     RETURN
+                      00289     
+                      00290     
+                      00291     
+0103                  00292 I2C_ERROR:
+                      00293     ;NOTHING HERE YET
+0103   0008           00294     RETURN
+                      00295 
+                      00296     
+0104                  00297 DELAY:
+0104   0000           00298     NOP
+0105   0000           00299     NOP
+0106   0000           00300     NOP
+0107   0000           00301     NOP
+0108   0000           00302     NOP
+0109   0000           00303     NOP
+010A   0000           00304     NOP
+010B   0000           00305     NOP
+010C   0000           00306     NOP
+010D   0000           00307     NOP
+010E   0000           00308     NOP
+010F   0000           00309     NOP
+0110   0008           00310     RETURN
 Warning[205]: Found directive in column 1. (END)
-2FE2 3FFF             00297 END
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE  8
+2FE2 3FFF             00311 END
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE  8
 
 
 SYMBOL TABLE
@@ -443,7 +462,7 @@ BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
 BRG9                              00000001
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE  9
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE  9
 
 
 SYMBOL TABLE
@@ -502,7 +521,7 @@ CCPR2H                            0000001C
 CCPR2L                            0000001B
 CHS0                              00000002
 CHS1                              00000003
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE 10
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE 10
 
 
 SYMBOL TABLE
@@ -527,7 +546,7 @@ DC1B0                             00000004
 DC1B1                             00000005
 DC2B0                             00000004
 DC2B1                             00000005
-DELAY                             000000F6
+DELAY                             00000104
 D_A                               00000005
 D_NOT_A                           00000005
 ECCPAS                            0000009C
@@ -561,16 +580,17 @@ HOUR_ONES                         00000079
 HOUR_RESET                        00000091
 HOUR_TENS                         0000007A
 HTS                               00000002
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE 11
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE 11
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
 I2C_DATA                          00000005
-I2C_ERROR                         000000F5
+I2C_ERROR                         00000103
 I2C_READ                          00000002
 I2C_READ_BYTE_ACK                 000000E9
+I2C_READ_BYTE_NACK                000000F6
 I2C_SEND_BYTE                     000000DC
 I2C_START                         00000003
 I2C_START_                        000000B8
@@ -619,13 +639,13 @@ MSK6                              00000006
 MSK7                              00000007
 NOT_A                             00000005
 NOT_ADDRESS                       00000005
-NOT_BO                            00000000
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE 12
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE 12
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+NOT_BO                            00000000
 NOT_BOR                           00000000
 NOT_DONE                          00000001
 NOT_PD                            00000003
@@ -678,13 +698,13 @@ PSSAC0                            00000002
 PSSAC1                            00000003
 PSSBD0                            00000000
 PSSBD1                            00000001
-PSTRCON                           0000009D
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE 13
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE 13
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+PSTRCON                           0000009D
 PULSR                             00000002
 PULSS                             00000003
 PWM1CON                           0000009B
@@ -737,13 +757,13 @@ RE0                               00000000
 RE1                               00000001
 RE2                               00000002
 RE3                               00000003
-READ_WRITE                        00000002
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE 14
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE 14
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+READ_WRITE                        00000002
 RP0                               00000005
 RP1                               00000006
 RSEN                              00000001
@@ -796,13 +816,13 @@ STRSYNC                           00000004
 SWDTEN                            00000000
 SYNC                              00000004
 S_TEMP                            00000071
-T0CS                              00000005
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE 15
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE 15
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+T0CS                              00000005
 T0IE                              00000005
 T0IF                              00000002
 T0SE                              00000004
@@ -855,13 +875,13 @@ TRISB2                            00000002
 TRISB3                            00000003
 TRISB4                            00000004
 TRISB5                            00000005
-TRISB6                            00000006
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE 16
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE 16
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+TRISB6                            00000006
 TRISB7                            00000007
 TRISC                             00000087
 TRISC0                            00000000
@@ -914,17 +934,18 @@ VR3                               00000003
 VRCON                             00000097
 VREN                              00000007
 VROE                              00000006
-VRR                               00000005
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE 17
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE 17
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+VRR                               00000005
 VRSS                              00000004
 W                                 00000000
 WAIT_BYTE                         000000E1
 WAIT_RCEN                         000000EC
+WAIT_RCEN1                        000000F9
 WCOL                              00000007
 WDTCON                            00000105
 WDTPS0                            00000001
@@ -972,14 +993,14 @@ _EXTRC                            00003FFF
 _EXTRCIO                          00003FFE
 _EXTRC_OSC_CLKOUT                 00003FFF
 _EXTRC_OSC_NOCLKOUT               00003FFE
-_FCMEN_OFF                        000037FF
-_FCMEN_ON                         00003FFF
-MPASM 5.68                          MAIN.ASM   5-7-2026  0:33:01         PAGE 18
+MPASM 5.68                          MAIN.ASM   5-7-2026  0:37:44         PAGE 18
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+_FCMEN_OFF                        000037FF
+_FCMEN_ON                         00003FFF
 _FOSC_EC                          00003FFB
 _FOSC_EXTRC_CLKOUT                00003FFF
 _FOSC_EXTRC_NOCLKOUT              00003FFE
@@ -1018,7 +1039,7 @@ _XT_OSC                           00003FF9
 __16F887                          00000001
 
 Errors   :     0
-Warnings :     8 reported,     0 suppressed
-Messages :    23 reported,     0 suppressed
+Warnings :     9 reported,     0 suppressed
+Messages :    27 reported,     0 suppressed
 
 
