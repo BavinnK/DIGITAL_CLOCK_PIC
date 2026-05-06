@@ -210,7 +210,7 @@ SEN_WAIT:		;so we will wait here until MSSP finishes whatever he is doing
     
     RETURN
     
-LCD_ADDR_SEND:		;ts subroutine only sends the lcd addr
+LCD_ADDR_SEND_WRITE:		;ts subroutine only sends the lcd addr
     BCF STATUS,0
     RLF LCD_ADDR,W	;we will shift the address then add 0 to the address then to the bus to write data
     
@@ -218,13 +218,32 @@ LCD_ADDR_SEND:		;ts subroutine only sends the lcd addr
     MOVWF SSPBUF
     
     BANKSEL SSPSTAT
-BUF_WAIT:
+BUF_WAIT_WRITE:
     BTFSC SSPSTAT,2	;wait until the MSSP sends the data, then wait and check if we get ACK or NACK from the slave
-    GOTO BUF_WAIT
+    GOTO BUF_WAIT_WRITE
+    CALL DELAY
     BANKSEL SSPCON2
     BTFSC SSPCON2,6
     GOTO I2C_ERROR
     RETURN
+    
+LCD_ADDR_SEND_READ:		;ts subroutine only sends the lcd addr
+    BSF STATUS,0
+    RLF LCD_ADDR,W	;we will shift the address then add 0 to the address then to the bus to write data
+    
+    BANKSEL SSPBUF
+    MOVWF SSPBUF
+    
+    BANKSEL SSPSTAT
+BUF_WAIT_READ:
+    BTFSC SSPSTAT,2	;wait until the MSSP sends the data, then wait and check if we get ACK or NACK from the slave
+    GOTO BUF_WAIT_READ
+    CALL DELAY
+    BANKSEL SSPCON2
+    BTFSC SSPCON2,6
+    GOTO I2C_ERROR
+    RETURN
+    
     
 I2C_SEND_BYTE:
     BANKSEL SSPBUF
@@ -233,13 +252,46 @@ I2C_SEND_BYTE:
 WAIT_BYTE:
     BTFSC SSPSTAT,2
     GOTO WAIT_BYTE
+    CALL DELAY
     BANKSEL SSPCON2
     BTFSC SSPCON2,6
     GOTO I2C_ERROR
     RETURN
     
+I2C_READ_BYTE_ACK:
+    BANKSEL SSPCON2
+    BSF SSPCON2,3	; Receive Enable bit (in I2C Master mode only)
+    
+    WAIT_RCEN:
+    BTFSC SSPCON,3
+    GOTO WAIT_RCEN
+    BANKSEL SSPBUF
+    MOVF SSPBUF,W
+    ;MOVWF TO SOME VAR
+    BANKSEL SSPCON2
+    BCF SSPCON2,5	;SET IT TO 0 means when we recive data send an ACK
+    BSF SSPCON2,4	;then pull the trigger and send the ACK, to the bus
+    
+    
+    
+    
 I2C_ERROR:
     ;NOTHING HERE YET
     RETURN
 
+    
+DELAY:
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    NOP
+    RETURN
 END

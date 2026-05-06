@@ -19,7 +19,13 @@ Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 134 
 Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 205 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 208 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 222 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 225 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 234 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 237 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Warning[205] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 245 : Found directive in column 1. (END)
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 226 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 239 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 243 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 253 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 257 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 263 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[207] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 265 : Found label after column 1. (WAIT_RCEN)
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 272 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 273 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[205] C:\USERS\BAVIN\MPLABXPROJECTS\DIGITAL_CLOCK_PROJECT.X\MAIN.ASM 297 : Found directive in column 1. (END)
